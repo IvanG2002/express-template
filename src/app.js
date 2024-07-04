@@ -3,7 +3,6 @@ import cookieParser from "cookie-parser"
 import cors from "cors"
 import morgan from "morgan"
 import errorHandler from "./middlewares/handleError.js"
-import authRouter from "./routes/auth.routes.js"
 import { rateLimit } from "express-rate-limit"
 
 const limiter = rateLimit({
@@ -25,7 +24,6 @@ app.get("/check", (req, res) => {
     res.json({ message: "health" })
 })
 // api/v1
-app.use("/api/v1", authRouter)
 
 app.use(errorHandler);
 
